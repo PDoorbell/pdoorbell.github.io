@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caleb Tanui</title>
+  <style>
+    :root {
+      --bg-dark: #0b0c10;
+      --accent: #66fcf1;
+      --glow: radial-gradient(circle at center, #1f2833, #0b0c10);
+      --font-main: 'Segoe UI', sans-serif;
+      --font-calligraphy: "Brush Script MT", cursive;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--glow);
+      color: white;
+      font-family: var(--font-main);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      padding: 10px;
+      z-index: 999;
+    }
+
+    .question-box {
+      background: #1f2833;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--accent);
+    }
+
+    .question-box input, .question-box textarea {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+      background: #0b0c10;
+      border: 1px solid var(--accent);
+      color: white;
+      border-radius: 5px;
+    }
+
+    .question-box button {
+      background: var(--accent);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      color: #0b0c10;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .question-box button:hover {
+      background: #45a29e;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      min-height: 100vh;
+      background: var(--glow);
+      padding-top: 60px;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid var(--accent);
+      box-shadow: 0 0 20px var(--accent);
+    }
+
+    .profile h1 {
+      margin-top: 10px;
+      font-size: 2rem;
+      color: var(--accent);
+    }
+
+    .profile h2 {
+      font-family: var(--font-calligraphy);
+      font-size: 1.5rem;
+      color: #ffffffaa;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .title {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .content {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="question-box">
+      <form onsubmit="return validateEmail(event)">
+        <label><strong>Ask Caleb a question</strong></label><br />
+        <input type="email" id="email" placeholder="Your Email" required /><br />
+        <textarea placeholder="Your Question" required></textarea><br />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </header>
+
+  <div class="profile">
+    <img src="caleb pfp.png" alt="Caleb Tanui" />
+    <h1>Caleb Tanui</h1>
+    <h2>Keep trying...</h2>
+  </div>
+
+  <section id="school">
+    <div class="title">School Info</div>
+    <div class="content">
+      I attend <strong>Sukari Presbyterian Junior School</strong> in Nairobi, Kenya. I'm currently in Grade 9 under the CBC system.
+      <br /><br />
+      My favorite subjects include <strong>Math</strong> and <strong>English</strong>. I'm proud of scoring 98% recently in English!
+      <br /><br />
+      I lead the <strong>Chess Club</strong> and the <strong>Table Tennis Sport</strong> at school.
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="title">Contact</div>
+    <div class="content">
+      You can reach me at: <strong>caleb2tanui@gmail.com</strong>
+    </div>
+  </section>
+
+  <script>
+    function validateEmail(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      if (!email.includes("@") || !email.includes(".")) {
+        alert("Please enter a valid email.");
+        return false;
+      }
+      alert("Your question was sent! (not really, this is a demo)");
+      return false;
+    }
+
+    const sections = document.querySelectorAll("section");
+    window.addEventListener("scroll", () => {
+      sections.forEach(sec => {
+        const top = window.scrollY;
+        const offset = sec.offsetTop - 400;
+        if (top > offset) {
+          sec.classList.add("visible");
+        }
+      });
+    });
+  </script>
+</body>
+</html>
