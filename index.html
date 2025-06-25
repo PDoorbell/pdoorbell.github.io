@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="yvvSxq2tNApr9bAJuD8_LGC6xxq_ty3CoCfU5CpOGZo" />  <meta charset="UTF-8" />
+  <meta name="google-site-verification" content="yvvSxq2tNApr9bAJuD8_LGC6xxq_ty3CoCfU5CpOGZo" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="author" content="Caleb Kipyego Tanui" />
   <meta name="description" content="Official site of Caleb Kipyego Tanui, a Grade 9 student at Sukari Presbyterian Junior School. Chess and table tennis captain. Also known as ProjectDoorbell." />
@@ -132,10 +133,10 @@
 
   <header>
     <div class="question-box">
-      <form onsubmit="return validateEmail(event)">
+      <form action="https://formsubmit.co/caleb2tanui@gmail.com" method="POST">
         <label><strong>Ask Caleb a question</strong></label><br />
-        <input type="email" id="email" placeholder="Your Email" required /><br />
-        <textarea placeholder="Your Question" required></textarea><br />
+        <input type="email" name="email" placeholder="Your Email" required /><br />
+        <textarea name="message" placeholder="Your Question" required></textarea><br />
         <button type="submit">Send</button>
       </form>
     </div>
@@ -152,7 +153,7 @@
     <div class="content">
       I attend <strong>Sukari Presbyterian Junior School</strong> in Nairobi, Kenya. I'm currently in Grade 9 under the CBC system.
       <br /><br />
-      My favorite subjects include <strong>Math</strong> and <strong>English</strong>. I'm proud of scoring 98% recently in English!
+      My favorite subjects include <strong>Math</strong> and <strong>English</strong>.
       <br /><br />
       I lead the <strong>Chess Club</strong> and the <strong>Table Tennis Sport</strong> at school.
     </div>
@@ -166,17 +167,6 @@
   </section>
 
   <script>
-    function validateEmail(event) {
-      event.preventDefault();
-      const email = document.getElementById("email").value;
-      if (!email.includes("@") || !email.includes(".")) {
-        alert("Please enter a valid email.");
-        return false;
-      }
-      alert("Your question was sent! (not really, this is a demo)");
-      return false;
-    }
-
     const sections = document.querySelectorAll("section");
     window.addEventListener("scroll", () => {
       sections.forEach(sec => {
