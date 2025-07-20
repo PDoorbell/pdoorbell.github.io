@@ -7,145 +7,33 @@
   <meta name="author" content="Caleb Kipyego Tanui" />
   <meta name="description" content="Official site of Caleb Kipyego Tanui, a Grade 9 student at Sukari Presbyterian Junior School. Chess and table tennis captain. Also known as ProjectDoorbell." />
   <meta name="keywords" content="Caleb Kipyego Tanui, Sukari Presbyterian, ProjectDoorbell, student, chess, table tennis, Kenya" />
+  <link rel="stylesheet" href="styles.css">
   <meta name="handle" content="ProjectDoorbell" />
   <title>Caleb Tanui</title>
-  <style>
-    :root {
-      --bg-dark: #0b0c10;
-      --accent: #66fcf1;
-      --glow: radial-gradient(circle at center, #1f2833, #0b0c10);
-      --font-main: 'Segoe UI', sans-serif;
-      --font-calligraphy: "Brush Script MT", cursive;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: var(--glow);
-      color: white;
-      font-family: var(--font-main);
-      scroll-behavior: smooth;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      padding: 10px;
-      z-index: 999;
-    }
-
-    .question-box {
-      background: #1f2833;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px var(--accent);
-    }
-
-    .question-box input, .question-box textarea {
-      width: 100%;
-      margin: 5px 0;
-      padding: 8px;
-      background: #0b0c10;
-      border: 1px solid var(--accent);
-      color: white;
-      border-radius: 5px;
-    }
-
-    .question-box button {
-      background: var(--accent);
-      border: none;
-      padding: 8px 12px;
-      border-radius: 5px;
-      color: #0b0c10;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .question-box button:hover {
-      background: #45a29e;
-    }
-
-    .profile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 100vh;
-      background: var(--glow);
-      padding-top: 60px;
-    }
-
-    .profile img {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 3px solid var(--accent);
-      box-shadow: 0 0 20px var(--accent);
-    }
-
-    .profile h1 {
-      margin-top: 10px;
-      font-size: 2rem;
-      color: var(--accent);
-    }
-
-    .profile h2 {
-      font-family: var(--font-calligraphy);
-      font-size: 1.5rem;
-      color: #ffffffaa;
-    }
-
-    section {
-      padding: 80px 20px;
-      max-width: 800px;
-      margin: auto;
-      opacity: 0;
-      transform: translateY(50px);
-      transition: all 0.6s ease-out;
-    }
-
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .title {
-      font-size: 1.8rem;
-      color: var(--accent);
-      margin-bottom: 10px;
-    }
-
-    .content {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ccc;
-    }
-  </style>
 </head>
 <body>
 
-  <header>
-    <div class="question-box">
-      <form action="https://formsubmit.co/caleb2tanui@gmail.com" method="POST">
-        <label><strong>Ask Caleb a question</strong></label><br />
-        <input type="email" name="email" placeholder="Your Email" required /><br />
-        <textarea name="message" placeholder="Your Question" required></textarea><br />
-        <button type="submit">Send</button>
-      </form>
-    </div>
+  <header id="main-header">
+    <button class="ask-button" onclick="toggleQuestionBox()">Ask Caleb a Question</button>
+    <img class="header-profile-img" src="caleb pfp.png" alt="Caleb Tanui" style="display:none;" />
+    <h1 class="header-name">Caleb Tanui</h1>
   </header>
 
-  <div class="profile">
-    <img src="caleb pfp.png" alt="Caleb Tanui" />
-    <h1>Caleb Tanui</h1>
-    <h2>Keep trying...</h2>
+  <div class="profile-stack">
+    <img class="profile-img" src="caleb pfp.png" alt="Caleb Tanui" />
+    <h1 class="profile-name">Caleb Tanui</h1>
+    <h2 class="profile-motto">Keep trying...</h2>
+  </div>
+
+  <div class="question-box" id="questionBox" style="display:none;">
+    <form action="https://formsubmit.co/caleb2tanui@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <label>Ask Caleb a question</label><br />
+      <input type="email" name="email" placeholder="Your Email" required /><br />
+      <textarea name="message" placeholder="Your Question" required></textarea><br />
+      <button type="submit">Send</button>
+    </form>
   </div>
 
   <section id="school">
@@ -162,21 +50,10 @@
   <section id="contact">
     <div class="title">Contact</div>
     <div class="content">
-      You can reach me at: <strong>caleb2tanui@gmail.com</strong>
+      You can reach me at:<strong>caleb2tanui@gmail.com</strong>
     </div>
   </section>
-
-  <script>
-    const sections = document.querySelectorAll("section");
-    window.addEventListener("scroll", () => {
-      sections.forEach(sec => {
-        const top = window.scrollY;
-        const offset = sec.offsetTop - 400;
-        if (top > offset) {
-          sec.classList.add("visible");
-        }
-      });
-    });
-  </script>
+   <script type="module" src="index.js"></script>
 </body>
 </html>
+
