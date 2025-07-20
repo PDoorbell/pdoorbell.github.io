@@ -1,0 +1,412 @@
+:root {
+      --bg-dark: #324740;
+      --accent: #d4b081;
+      --glow: radial-gradient(circle at center, #1f2833, #0b0c10);
+      --font-main: 'Segoe UI', sans-serif;
+      --font-calligraphy: "Brush Script MT", cursive;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: var(--glow);
+      color: white;
+      font-family: var(--font-main);
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1002;
+      background: #3c618565;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .header-name {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 1.7rem;
+      color: var(--accent);
+      margin: 0;
+      pointer-events: none;
+      z-index: 1002;
+      opacity: 0;
+      transition: opacity 0.4s, font-size 0.7s cubic-bezier(0.4,0,0.2,1), top 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .header-name.visible {
+      opacity: 1;
+    }
+
+    .ask-button {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--accent);
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      color: #d1f0ff;
+      cursor: pointer;
+      font-weight: bold;
+      pointer-events: auto;
+      z-index: 1004;
+    }
+
+    .ask-button:hover {
+      background: #883008;
+    }
+
+    .question-box {
+      display: none;
+      position: fixed;
+      top: 60px;
+      left: 10px;
+      background: #1f2833;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px var(--accent);
+      width: 250px;
+      z-index: 1000;
+    }
+
+    .question-box input,
+    .question-box textarea {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+      background: #0b0c10;
+      border: 1px solid var(--accent);
+      color: white;
+      border-radius: 5px;
+    }
+
+    .question-box button {
+      background: var(--accent);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      color: #0b0c10;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .question-box button:hover {
+      background: #45a29e;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: none;
+      height: min-content;
+      transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
+      z-index: 10;
+    }
+    .profile-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 120px;
+      margin-bottom: 80px;
+      width: 100%; /* Changed from 100vw to 100% to prevent horizontal scroll */
+      z-index: 10;
+      position: relative;
+      min-height: 350px;
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    .profile-stack.sticky {
+      position: sticky;
+      top: 100px;
+      z-index: 1001;
+    }
+
+    .profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      box-shadow: 0 0 30px var(--accent);
+      object-fit: cover;
+      margin-bottom: 18px;
+      transition: width 0.7s cubic-bezier(0.4,0,0.2,1), height 0.7s cubic-bezier(0.4,0,0.2,1), left 0.7s, top 0.7s;
+      will-change: transform, opacity, width, height;
+      opacity: 1;
+    }
+
+    body.scrolled .profile-img {
+      width: 60px;
+      height: 60px;
+      position: fixed;
+      left: 18px;
+      top: 10px;
+      margin-bottom: 0;
+      z-index: 3000;
+      box-shadow: 0 0 10px var(--accent);
+      opacity: 1;
+      transition: width 0.7s cubic-bezier(0.4,0,0.2,1), height 0.7s cubic-bezier(0.4,0,0.2,1), left 0.7s, top 0.7s, box-shadow 0.7s;
+    }
+
+    .profile-name {
+      font-size: 2.7rem;
+      color: var(--accent);
+      margin-bottom: 12px;
+      transition: font-size 0.7s cubic-bezier(0.4,0,0.2,1), top 0.7s, left 0.7s, opacity 0.4s;
+      will-change: transform, opacity, font-size;
+      opacity: 1;
+    }
+
+    body.scrolled .profile-name {
+      position: fixed;
+      left: 50%;
+      top: 40px;
+      transform: translateX(-50%);
+      font-size: 1.5rem;
+      color: var(--accent);
+      margin-bottom: 0;
+      z-index: 3001;
+      opacity: 1;
+      transition: opacity 0.4s 0.2s, font-size 0.7s cubic-bezier(0.4,0,0.2,1), top 0.7s, left 0.7s;
+    }
+
+    body.scrolled .profile-name.fade {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    body:not(.scrolled) .profile-name {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      position: static;
+      font-size: 2.7rem;
+      margin-bottom: 12px;
+      color: var(--accent);
+      z-index: 10;
+      transition: opacity 0.4s, font-size 0.7s cubic-bezier(0.4,0,0.2,1), top 0.7s, left 0.7s;
+    }
+
+    .profile-motto {
+      font-family: var(--font-calligraphy);
+      font-size: 2.2rem;
+      color: #ffffffee;
+      opacity: 1;
+      margin-top: 8px;
+      transition: font-size 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      will-change: transform, opacity, font-size;
+      position: static;
+      z-index: 10;
+    }
+
+    body.scrolled .profile-motto {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 7rem;
+      opacity: 0.18; /* semi-transparent */
+      z-index: 3000;
+      pointer-events: none;
+      transition: font-size 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    body.scrolled .profile-motto.fade {
+      opacity: 0.18 !important;
+      transition: opacity 0.3s;
+    }
+
+    .site-title {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2.5rem;
+      color: var(--accent);
+      text-align: center;
+      z-index: 2;
+      transition: font-size 0.4s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    header.scrolled .site-title {
+      font-size: 1.5rem;
+    }
+
+    section {
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: auto;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.6s ease-out;
+    }
+
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .title {
+      font-size: 1.8rem;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .content {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .motto {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-calligraphy);
+      font-size: 2.5rem;
+      color: #ffffffee;
+      opacity: 1;
+      pointer-events: none;
+      z-index: 1001;
+      transition: font-size 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.7s cubic-bezier(0.4,0,0.2,1);
+    }
+
+    body.motto-large .motto {
+      font-size: 7rem;
+      opacity: 0.08;
+    }
+
+    @keyframes pulse-glow {
+  0% {
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+  }
+  50% {
+    box-shadow: 0 0 50px var(--accent), 0 0 80px var(--accent);
+  }
+  100% {
+    box-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+  }
+}
+
+header.scrolled .profile {
+  left: auto;
+  top: 10px;
+  right: 20px;
+  transform: none;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+header.scrolled .profile img {
+  width: 60px;
+  height: 60px;
+}
+
+header.scrolled .profile-name {
+  font-size: 1.2rem;
+}
+
+header.scrolled .profile-motto {
+  font-size: 1rem;
+  opacity: 0.08;
+}
+
+body.scrolled .profile-stack {
+  pointer-events: none;
+  transition: height 0.7s cubic-bezier(0.4,0,0.2,1), min-height 0.7s cubic-bezier(0.4,0,0.2,1), margin 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+body.scrolled .profile-motto {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 7rem;
+  opacity: 0.18; /* semi-transparent */
+  z-index: 3000;
+  pointer-events: none;
+  transition: font-size 0.7s cubic-bezier(0.4,0,0.2,1), opacity 0.5s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+}
+
+/* Hide header-name unless scrolled */
+.header-name {
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity 0.4s, visibility 0.4s;
+}
+body.scrolled .header-name.visible {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Animate profile-name fade out/in based only on .scrolled */
+body.scrolled .profile-name {
+  position: fixed;
+  left: 50%;
+  top: 40px;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  color: var(--accent);
+  margin-bottom: 0;
+  z-index: 3001;
+  opacity: 1;
+  transition: opacity 0.4s 0.2s, font-size 0.7s cubic-bezier(0.4,0,0.2,1), top 0.7s, left 0.7s;
+}
+
+body:not(.scrolled) .profile-name {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+  position: static;
+  font-size: 2.7rem;
+  margin-bottom: 12px;
+  color: var(--accent);
+  z-index: 10;
+  transition: opacity 0.4s, font-size 0.7s cubic-bezier(0.4,0,0.2,1), top 0.7s, left 0.7s;
+}
+
+.header-profile-img {
+  display: none;
+  position: absolute;
+  left: 18px;
+  top: 10px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 4px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  object-fit: cover;
+  z-index: 1003;
+  opacity: 0;
+  transition: opacity 0.5s, box-shadow 0.7s;
+  background: #0b0c10;
+}
+.header-profile-img[style*="display: block"] {
+  opacity: 1;
+}
+body.scrolled .profile-img {
+  opacity: 0 !important;
+  pointer-events: none;
+}
