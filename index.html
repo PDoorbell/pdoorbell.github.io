@@ -1,96 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Caleb Kipyego Tanui</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png">
-  <meta name="description" content="Official site of Caleb Kipyego Tanui, a Grade 9 student at Sukari Presbyterian Junior School. Chess and table tennis captain. Also known as ProjectDoorbell." />
+  <script defer src="script.js"></script>
 </head>
 <body>
+
   <header id="main-header">
-    <h1 class="header-name">Caleb Tanui</h1>
-    <button class="ask-button">Ask Me Anything</button>
+    <h1 class="header-name">Caleb Kipyego Tanui</h1>
+    <button class="ask-button">Ask</button>
   </header>
 
   <div class="profile-stack">
     <div class="profile">
-      <img src="profile.jpg" alt="Profile Photo" class="profile-img">
-      <h2 class="profile-name">Caleb Kipyego Tanui</h2>
-      <div class="profile-motto">“Remember the Aura.”</div>
+      <img src="me.jpg" alt="Caleb's Profile" class="profile-img">
+      <h1 class="profile-name">Caleb Kipyego Tanui</h1>
+      <div class="profile-motto">Remember the Aura.</div>
     </div>
   </div>
 
   <section>
     <h2 class="title">About Me</h2>
-    <div class="content">
-      <p><strong>Full Name:</strong> Caleb Kipyego Tanui</p>
-      <p><strong>Date of Birth:</strong> February 18, 2011</p>
-      <p><strong>Born In:</strong> Nairobi, Kenya</p>
-      <p><strong>School:</strong> Sukari Presbyterian Junior School</p>
-    </div>
+    <p class="content">
+      Born on 18 Feb 2011 in Nairobi, Kenya. Currently studying at Sukari Presbyterian Junior School.
+      I'm extroverted, but I prefer working solo. Self-awareness is my top strength. I can’t swim, but I can beat you in math. 
+      Secret button on this website? Yeah, it took 3 weeks 😅😭
+    </p>
   </section>
 
   <section>
     <h2 class="title">Academics</h2>
-    <div class="content">
-      <p><strong>Subjects I like:</strong> Math is goated, half of English.</p>
-      <p><strong>Subjects I don't like:</strong> Kiswahili, Social Studies, CRE, Pre-tech, Agriculture, KSL</p>
-      <p><strong>My Routine:</strong> Go to school, read stuff I find cool, talk with adults, do work I choose after school.</p>
-    </div>
+    <p class="content">
+      Let’s be real — most subjects are a snoozefest. Math is goated. English? Only the parts that don’t make you cry. 
+      I despise Kiswahili, Social Studies, CRE, Pre-technical Studies, Agriculture, and Kenyan Sign Language.
+      After school, I only do what I find interesting — read cool stuff, have actual convos with teachers and parents, and just do me.
+    </p>
   </section>
 
   <section>
-    <h2 class="title">Leadership & Achievements</h2>
-    <div class="content">
-      <p>Runner-up in both head boy elections (2/2), captain of chess and table tennis clubs.</p>
-      <p><strong>Leadership Strength:</strong> Commitment to the arts.</p>
-      <p><strong>Motivation Style:</strong> Spontaneous motivation.</p>
-      <p><strong>Big W:</strong> Urafiki Carovana 2024 — trash talked in the morning, came out champ.</p>
-    </div>
+    <h2 class="title">Leadership & Clubs</h2>
+    <p class="content">
+      I’ve been runner-up for head boy — twice. Captain of the chess club and table tennis squad. 
+      I lead with commitment to the arts and that spontaneous push that hits when you're least expecting it.
+    </p>
   </section>
 
   <section>
-    <h2 class="title">Hobbies & Projects</h2>
-    <div class="content">
-      <p><strong>Instrument:</strong> Piano</p>
-      <p><strong>Coding Projects:</strong> Password generator, To-Do app, Stopwatch, Clock, and others</p>
-    </div>
+    <h2 class="title">Notable Wins</h2>
+    <p class="content">
+      Urafiki Carovana 2024 Chess Tournament — someone said I couldn’t win. I said “watch.” Then I won. 
+    </p>
   </section>
 
   <section>
-    <h2 class="title">My Vibe</h2>
-    <div class="content">
-      <p><strong>Personality:</strong> Extroverted but prefers solo work</p>
-      <p><strong>Motivation:</strong> Death's inevitability</p>
-      <p><strong>Strength:</strong> Self-awareness</p>
-    </div>
+    <h2 class="title">Hobbies & Interests</h2>
+    <p class="content">
+      I play the piano and love video games (especially Bedwars). I’m into Forrest Frank’s music and my favorite show right now? Death Note — peak fiction. 
+    </p>
   </section>
 
   <section>
-    <h2 class="title">Fun Facts</h2>
-    <div class="content">
-      <p><strong>Favorite Show:</strong> Death Note</p>
-      <p><strong>Favorite Artist:</strong> Forrest Frank</p>
-      <p><strong>Favorite Game:</strong> Bedwars</p>
-      <p><strong>Hidden Button:</strong> <span style="cursor:pointer;color:var(--accent)" onclick="alert('😅😭 This website took 3 weeks!')">This website took 3 weeks 😅😭</span></p>
-    </div>
+    <h2 class="title">Projects</h2>
+    <p class="content">
+      I’ve built a password generator, a stopwatch, a working clock, a to-do app (proud of that one), and a few other neat things. 
+      There's also a secret button somewhere here... 👀
+    </p>
   </section>
 
-  <div id="questionBox" class="question-box">
-    <form action="https://formspree.io/f/moqglzjw" method="POST">
-      <input type="text" name="name" placeholder="Your name" required />
-      <input type="email" name="email" placeholder="Your email" required />
-      <textarea name="question" placeholder="Your question..." rows="4" required></textarea>
+  <div class="question-box" id="questionBox">
+    <form action="https://formspree.io/f/mwkglzpq" method="POST">
+      <input type="text" name="name" placeholder="Your name" required>
+      <textarea name="question" placeholder="Ask me anything..." required></textarea>
       <button type="submit">Send</button>
     </form>
   </div>
 
-  <script src="script.js"></script>
 </body>
 </html>
-
-
 
