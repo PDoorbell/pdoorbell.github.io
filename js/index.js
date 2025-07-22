@@ -219,3 +219,11 @@ window.addEventListener('click', function(e) {
     document.body.style.overflow = '';
   }
 });
+
+console.log("👀 You found the secret console. Caleb’s watching.");
+
+document.addEventListener("keydown", function(e) {
+  if (e.key.toLowerCase() === "c") {
+    alert("C is for Caleb. C is for Captain.");
+  }
+});
