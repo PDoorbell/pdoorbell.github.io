@@ -1,75 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="google-site-verification" content="yvvSxq2tNApr9bAJuD8_LGC6xxq_ty3CoCfU5CpOGZo" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="author" content="Caleb Kipyego Tanui"/>
-  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Caleb Kipyego Tanui</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/png" href="favicon.png">
   <meta name="description" content="Official site of Caleb Kipyego Tanui, a Grade 9 student at Sukari Presbyterian Junior School. Chess and table tennis captain. Also known as ProjectDoorbell." />
-  <meta name="keywords" content="Caleb Kipyego Tanui, Sukari Presbyterian, ProjectDoorbell, student, chess, table tennis, Kenya" />
-  <link rel="stylesheet" href="css/styles.css">
-  <meta name="handle" content="ProjectDoorbell" />
-  <title>Caleb Tanui</title>
 </head>
 <body>
-
   <header id="main-header">
-    <button class="ask-button" onclick="toggleQuestionBox()">Ask Caleb a Question</button>
-    <img class="header-profile-img" src="caleb pfp.png" alt="Caleb Tanui" style="display:none;" />
     <h1 class="header-name">Caleb Tanui</h1>
+    <button class="ask-button">Ask Me Anything</button>
   </header>
 
   <div class="profile-stack">
-    <img class="profile-img" src="caleb pfp.png" alt="Caleb Tanui" />
-    <h1 class="profile-name">Caleb Tanui</h1>
-    <h2 class="profile-motto">Keep trying...</h2>
+    <div class="profile">
+      <img src="profile.jpg" alt="Profile Photo" class="profile-img">
+      <h2 class="profile-name">Caleb Kipyego Tanui</h2>
+      <div class="profile-motto">“Remember the Aura.”</div>
+    </div>
   </div>
 
-  <div class="question-box" id="questionBox" style="display:none;">
-    <form action="https://formsubmit.co/caleb2tanui@gmail.com" method="POST">
-      <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_template" value="table">
-      <label>Ask Caleb a question</label><br />
-      <input type="email" name="email" placeholder="Your Email" required /><br />
-      <textarea name="message" placeholder="Your Question" required></textarea><br />
+  <section>
+    <h2 class="title">About Me</h2>
+    <div class="content">
+      <p><strong>Full Name:</strong> Caleb Kipyego Tanui</p>
+      <p><strong>Date of Birth:</strong> February 18, 2011</p>
+      <p><strong>Born In:</strong> Nairobi, Kenya</p>
+      <p><strong>School:</strong> Sukari Presbyterian Junior School</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">Academics</h2>
+    <div class="content">
+      <p><strong>Subjects I like:</strong> Math is goated, half of English.</p>
+      <p><strong>Subjects I don't like:</strong> Kiswahili, Social Studies, CRE, Pre-tech, Agriculture, KSL</p>
+      <p><strong>My Routine:</strong> Go to school, read stuff I find cool, talk with adults, do work I choose after school.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">Leadership & Achievements</h2>
+    <div class="content">
+      <p>Runner-up in both head boy elections (2/2), captain of chess and table tennis clubs.</p>
+      <p><strong>Leadership Strength:</strong> Commitment to the arts.</p>
+      <p><strong>Motivation Style:</strong> Spontaneous motivation.</p>
+      <p><strong>Big W:</strong> Urafiki Carovana 2024 — trash talked in the morning, came out champ.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">Hobbies & Projects</h2>
+    <div class="content">
+      <p><strong>Instrument:</strong> Piano</p>
+      <p><strong>Coding Projects:</strong> Password generator, To-Do app, Stopwatch, Clock, and others</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">My Vibe</h2>
+    <div class="content">
+      <p><strong>Personality:</strong> Extroverted but prefers solo work</p>
+      <p><strong>Motivation:</strong> Death's inevitability</p>
+      <p><strong>Strength:</strong> Self-awareness</p>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="title">Fun Facts</h2>
+    <div class="content">
+      <p><strong>Favorite Show:</strong> Death Note</p>
+      <p><strong>Favorite Artist:</strong> Forrest Frank</p>
+      <p><strong>Favorite Game:</strong> Bedwars</p>
+      <p><strong>Hidden Button:</strong> <span style="cursor:pointer;color:var(--accent)" onclick="alert('😅😭 This website took 3 weeks!')">This website took 3 weeks 😅😭</span></p>
+    </div>
+  </section>
+
+  <div id="questionBox" class="question-box">
+    <form action="https://formspree.io/f/moqglzjw" method="POST">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="question" placeholder="Your question..." rows="4" required></textarea>
       <button type="submit">Send</button>
     </form>
   </div>
 
-  <section id="school">
-    <div class="title">School Info</div>
-    <div class="content">
-      I attend <strong>Sukari Presbyterian Junior School</strong> in Nairobi, Kenya. I'm currently in Grade 9 under the CBC system.
-      <br /><br />
-      My favourite subjects include <strong>Math</strong> and <strong>English</strong>.
-      <br /><br />
-      I lead the <strong>Chess Club</strong> and the <strong>Table Tennis Sport</strong> at school.
-    </div>
-  </section>
-
-
-  <section id="about">
-  <div class="title">About Me</div>
-  <div class="content">
-    I’m Caleb Tanui — a Grade 9 STEM student at Sukari Presbyterian, leading the charge in Chess and Table Tennis.  
-    I love Math, English, and building things that work (like this site).  
-    When I’m not dominating tournaments or solving equations, I’m watching Death Note and probably revising for exams.
-  </div>
-</section>
-
-  <section id="contact">
-    <div class="title">Contact</div>
-    <div class="content">
-      You can reach me at:<strong>caleb2tanui@gmail.com</strong>
-    </div>
-  </section>
-   <script type="module" src="js/index.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-
 
 
 
